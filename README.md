@@ -1,4 +1,4 @@
-# Battery-Status-API
+# Battery Status API
 
 This is the source code related to the blog post [(Ab)Using the HTML5 Battery Status API for Advertising](https://blog.cdemi.io/abusing-the-html5-battery-status-api-for-advertising/).
 
