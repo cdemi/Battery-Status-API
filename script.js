@@ -9,17 +9,21 @@ function levelChanged(newLevel, isCharging) {
     }
 }
 
-navigator.getBattery().then(function (battery) {
-    console.log(battery);
-
-    levelChanged(battery.level, battery.charging);
-    battery.addEventListener('levelchange', function () {
+if (navigator.getBattery !== undefined) {
+    navigator.getBattery().then(function (battery) {
         console.log(battery);
-        levelChanged(battery.level, battery.charging);        
-    });
 
-    battery.addEventListener('chargingchange', function () {
-        console.log(battery);
-        levelChanged(battery.level, battery.charging);        
+        levelChanged(battery.level, battery.charging);
+        battery.addEventListener('levelchange', function () {
+            console.log(battery);
+            levelChanged(battery.level, battery.charging);        
+        });
+
+        battery.addEventListener('chargingchange', function () {
+            console.log(battery);
+            levelChanged(battery.level, battery.charging);        
+        });
     });
-});
+} else {
+    document.getElementById('batteryApiNotSupported').style.display = 'block';
+}
