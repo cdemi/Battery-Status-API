@@ -23,14 +23,14 @@ if (navigator.getBattery !== undefined) {
         console.log(battery);
         levelChanged(battery);
 
-        battery.addEventListener('levelchange', function (battery) {
-            console.log(battery);
-            levelChanged(battery);        
+        battery.addEventListener('levelchange', function (event) {
+            console.log(event.target);
+            levelChanged(event.target);        
         })
         
-        battery.addEventListener('chargingchange', function (battery) {
-            console.log(battery);
-            levelChanged(battery);        
+        battery.addEventListener('chargingchange', function (event) {
+            console.log(event.target);
+            levelChanged(event.target);        
         });
     });
 } else {
