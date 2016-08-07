@@ -4,34 +4,28 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>HTML5 Battery Status API</title>
 
-    <style>
-        .initialHide {
-            display: none;
-        }
-
-        footer{
-            margin-top: 50px;
-            font-size: 0.8em;
-            text-align: right;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id='batteryNormal' class="initialHide">
+    <a href="https://github.com/cdemi/Battery-Status-API">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+    </a>
+
+    <h2 class="title">Battery Status API - Surge Pricing POC</h2>
+
+    <div id="batteryNormal" class="initialHide">
         Battery more than 50% or charging: Traditional Marketing can be used
     </div>
-    <div id='batteryLow' class="initialHide">
+    <div id="batteryLow" class="initialHide">
         Battery less than 50% and not charging: Call to action bigger, maybe offer that will expire soon
     </div>
-    <script src="script.js"></script>
 
-    <footer>
-        Source Code is located on: <a href='https://github.com/cdemi/Battery-Status-API'>GitHub/cdemi/Battery-Status-API</a>
-    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
