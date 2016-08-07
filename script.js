@@ -1,5 +1,12 @@
-function levelChanged(newLevel, isCharging) {
-    if (isCharging || newLevel > 0.5) {
+function levelChanged(battery) {
+    document.getElementById('batteryData').innerText = JSON.stringify({
+        charging: battery.charging,
+        chargingTime: battery.chargingTime,
+        dischargingTime: battery.dischargingTime,
+        level: battery.level
+    }, null, 4);
+
+    if (battery.charging || battery.level > 0.5) {
         document.getElementById('batteryNormal').style.display = 'block';
         document.getElementById('batteryLow').style.display = 'none';
     }
@@ -10,18 +17,20 @@ function levelChanged(newLevel, isCharging) {
 }
 
 if (navigator.getBattery !== undefined) {
+    document.getElementById('batteryData').style.display = 'block';
+
     navigator.getBattery().then(function (battery) {
         console.log(battery);
+        levelChanged(battery);
 
-        levelChanged(battery.level, battery.charging);
-        battery.addEventListener('levelchange', function () {
+        battery.addEventListener('levelchange', function (battery) {
             console.log(battery);
-            levelChanged(battery.level, battery.charging);        
-        });
-
-        battery.addEventListener('chargingchange', function () {
+            levelChanged(battery);        
+        })
+        
+        battery.addEventListener('chargingchange', function (battery) {
             console.log(battery);
-            levelChanged(battery.level, battery.charging);        
+            levelChanged(battery);        
         });
     });
 } else {
