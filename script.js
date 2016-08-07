@@ -1,10 +1,10 @@
 function levelChanged(battery) {
     document.getElementById('batteryData').innerText = JSON.stringify({
         charging: battery.charging,
-        chargingTime: battery.chargingTime,
-        dischargingTime: battery.dischargingTime,
+        chargingTime: battery.chargingTime === Infinity ? '%Infinity%' : battery.chargingTime,
+        dischargingTime: battery.dischargingTime === Infinity ? '%Infinity%' : battery.dischargingTime,
         level: battery.level
-    }, null, 4);
+    }, null, 4).replace(/"%Infinity%"/g, Infinity);
 
     if (battery.charging || battery.level > 0.5) {
         document.getElementById('batteryNormal').style.display = 'block';
