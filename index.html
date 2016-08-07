@@ -1,14 +1,27 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
 
-  <title>HTML5 Battery Status API</title>
+<head>
+    <meta charset="utf-8">
+
+    <title>HTML5 Battery Status API</title>
+
+    <style>
+        .initialHide {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-  
-  <script src="script.js"></script>
+    <div id='batteryNormal' class="initialHide">
+        Battery more than 50% or charging: Traditional Marketing can be used
+    </div>
+    <div id='batteryLow' class="initialHide">
+        Battery less than 50% and not charging: Call to action bigger, maybe offer that will expire soon
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
