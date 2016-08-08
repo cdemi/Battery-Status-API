@@ -28,7 +28,9 @@ h3 {
 pre {
     background: #F8F8FF;
     border: black dashed 1px;
-    padding: 6px
+    padding: 6px;
+    font-size: .8em;
+    overflow: auto;
 }
 
 .initialHide {
